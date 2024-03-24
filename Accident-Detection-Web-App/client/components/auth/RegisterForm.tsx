@@ -1,19 +1,16 @@
-// SignUpForm.tsx
-
+"use client";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Button } from "../ui/button";
 import axios from "@/lib/axios";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
 
 type FormData = {
   email: string;
   password: string;
 };
 
-export default function SignUpForm() {
-  const router = useRouter();
+export default function RegisterForm() {
   const {
     register,
     handleSubmit,
@@ -39,7 +36,8 @@ export default function SignUpForm() {
       reset();
 
       // 로그인 페이지로 이동
-      router.push("/auth/login");
+      // router.push("/auth/login"); // 라우터를 사용하지 않고 페이지 이동
+      window.location.href = "/auth/login"; // 페이지 이동
     } catch (error: any) {
       // 회원가입 실패 메시지 출력
       toast.error("An error occurred. Please try again later.");

@@ -25,7 +25,7 @@ export default async function Navbar({}: Props) {
                   <Link href={"/auth/login"}>Login</Link>
                 </Button>
                 <Button size={"lg"} asChild>
-                  <Link href={"/auth/signup"}>Sign Up</Link>
+                  <Link href={"/auth/Register"}>Sign Up</Link>
                 </Button>
               </>
             ) : (

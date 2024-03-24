@@ -42,6 +42,12 @@ export default function UserNav({}: Props) {
         >
           Logout
         </DropdownMenuItem>
+        <DropdownMenuItem>
+          onClick={() => {
+            deleteCookie("token");
+            window.location.pathname = "/auth/register";
+          }}
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
