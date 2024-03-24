@@ -20,9 +20,14 @@ export default async function Navbar({}: Props) {
 
           <div className="flex items-center justify-center space-x-2">
             {!token ? (
-              <Button size={"lg"} asChild>
-                <Link href={"/auth/login"}>Login</Link>
-              </Button>
+              <>
+                <Button size={"lg"} asChild>
+                  <Link href={"/auth/login"}>Login</Link>
+                </Button>
+                <Button size={"lg"} asChild>
+                  <Link href={"/auth/signup"}>Sign Up</Link>
+                </Button>
+              </>
             ) : (
               <UserNav />
             )}

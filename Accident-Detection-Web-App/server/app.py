@@ -22,7 +22,13 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+
 app = Flask(__name__, static_folder='static')
+@app.route('/')
+def home():
+    return "안녕하세요! Flask 애플리케이션에 오신 것을 환영합니다."
+
+
 app.config['UPLOAD_FOLDER'] = 'static/videos'
 
 # JWT... 
@@ -51,3 +57,4 @@ CORS(app, origins=["http://localhost:3000"], supports_credentials=True)
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
+
