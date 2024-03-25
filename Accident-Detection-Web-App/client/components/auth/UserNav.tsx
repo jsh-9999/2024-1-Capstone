@@ -16,6 +16,16 @@ import { deleteCookie } from "cookies-next";
 type Props = {};
 
 export default function UserNav({}: Props) {
+  const handleLogout = () => {
+    deleteCookie("token");
+    window.location.pathname = "/auth/login";
+  };
+
+  const handleRegister = () => {
+    deleteCookie("token");
+    window.location.pathname = "/auth/register";
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="outline-none select-none">
@@ -34,20 +44,12 @@ export default function UserNav({}: Props) {
           <Link href={"/dashboard"}>Dashboard</Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem
-          onClick={() => {
-            deleteCookie("token");
-            window.location.pathname = "/auth/login";
-          }}
-        >
-          Logout
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          onClick={() => {
-            deleteCookie("token");
-            window.location.pathname = "/auth/register";
-          }}
-        </DropdownMenuItem>
+        <div onClick={handleLogout}>
+          <DropdownMenuItem>Logout</DropdownMenuItem>
+        </div>
+        <div onClick={handleRegister}>
+          <DropdownMenuItem>Register</DropdownMenuItem>
+        </div>
       </DropdownMenuContent>
     </DropdownMenu>
   );
